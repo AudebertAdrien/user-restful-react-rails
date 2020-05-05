@@ -3,12 +3,13 @@
 // of the page.
 
 import React from "react";
-import ReactDOM from "react-dom"
+import { render } from "react-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import SharePropsRoutes from "../components/SharePropsRoutes";
 
-const element = <h1>hello, world !!!</h1>;
-
-document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-        element,
-        document.getElementById("root"))
+document.addEventListener("DOMContentLoaded", () => {
+  render(
+    <SharePropsRoutes />,
+    document.body.appendChild(document.createElement("div"))
+  );
 });
