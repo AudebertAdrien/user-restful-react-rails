@@ -30,4 +30,4 @@
 yarn-debug.log*
 .yarn-integrity
 
-package-lock.js
+package-lock.json
