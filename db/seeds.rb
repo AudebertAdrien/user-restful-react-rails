@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.all.delete_all
+puts "User delete_all"
+
+# Faker::Avatar.image
+
+9.times do |i|
+    User.create(
+        name: Faker::Name.name,
+        description: Faker::Lorem.sentence
+    )
+end
