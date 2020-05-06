@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default () => (
   <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
@@ -13,6 +13,30 @@ export default () => (
         <Link to="/" className="btn btn-lg custom-button" role="button">
           View Recipes
         </Link>
+        
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">
+              Action
+            </a>
+            <a class="dropdown-item" href="#">
+              Another action
+            </a>
+            <a class="dropdown-item" href="#">
+              Something else here
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
