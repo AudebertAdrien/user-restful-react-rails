@@ -1,30 +1,38 @@
 class Api::V1::UsersController < ApplicationController
   def index
-    users = Users.all.order(created_at: :desc)
-    render json: recipe
+    users = User.all.order(created_at: :desc)
+    render json: users
   end
 
   def create
-    recipe = Recipe.create!(recipe_params)
-    if recipe
-      puts "#" * 100
-      puts recipe
-      puts "#" * 100
-      render json: recipe
+    user = User.create!(user_params)
+    if user
+      render json: user
     else
-      render json: recipe.errors
+      render json: user.errors
     end
   end
 
   def show
+    if user
+      render json: user
+    else
+      render json: user.errors
+    end
   end
 
   def destroy
+    user&.destroy
+    render json: { message: 'Recipe deleted!' }
   end
 
   private
 
-  def recipe_params
+  def user_params
     params.permit(:name, :description, :image)
+  end
+
+  def user
+    @user ||= User.find(params[:id])
   end
 end
