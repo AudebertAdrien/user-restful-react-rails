@@ -5,11 +5,41 @@ class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        user: ''
-    }
+      user: "",
+    };
 
     this.addHtmlEntities = this.addHtmlEntities.bind(this);
+    this.deleteUser = this.deleteUser.bind(this);
   }
+
+  deleteUser() {
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
+
+    const token = document.querySelector('meta[name="csrf-token"]').content;
+    const url = `/api/v1/users/${id}`;
+
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "X-CSRF-Token": token,
+        "Content-Type": "application/json",
+      }
+    })
+      .then(response => {
+          if (response.ok) {
+              console.log(response)
+              return response.json()
+          }
+          throw new Error("Network do not work form User/deleteUser")
+      })
+      .then(() => this.props.history.push("/users"))
+      .catch(error => console.log(error.message))
+    };
+  
 
   componentDidMount() {
     const {
@@ -17,7 +47,6 @@ class User extends React.Component {
         params: { id },
       },
     } = this.props;
-    console.log(this.props);
 
     const url = `/api/v1/users/${id}`;
     fetch(url)
@@ -54,7 +83,11 @@ class User extends React.Component {
         <div className="container py-5">
           <div className="row">
             <div className="col-sm-12 col-lg-2">
-              <button type="button" className="btn btn-danger">
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={this.deleteUser}
+              >
                 Delete User
               </button>
             </div>

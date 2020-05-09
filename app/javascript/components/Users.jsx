@@ -62,7 +62,7 @@ class Users extends React.Component {
 
         <div className="container">
           <div className="text-right mb-3">
-            <Link to="/users/creazt" className="btn custom-button">
+            <Link to="/users/create" className="btn custom-button">
               Create User Profile
             </Link>
           </div>

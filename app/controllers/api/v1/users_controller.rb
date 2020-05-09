@@ -7,6 +7,9 @@ class Api::V1::UsersController < ApplicationController
   def create
     user = User.create!(user_params)
     if user
+      puts "#" * 100
+      puts json:user
+      puts "#" * 100
       render json: user
     else
       render json: user.errors
@@ -23,7 +26,7 @@ class Api::V1::UsersController < ApplicationController
 
   def destroy
     user&.destroy
-    render json: { message: 'Recipe deleted!' }
+    render json: { message: 'User deleted!' }
   end
 
   private
