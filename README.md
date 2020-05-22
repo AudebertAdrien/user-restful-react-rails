@@ -1,6 +1,7 @@
 # user-restful-react-rails
 
 First project in react/rails
+
 A Restful project with a User model.
 - index => all users
 - show => see the selected user
