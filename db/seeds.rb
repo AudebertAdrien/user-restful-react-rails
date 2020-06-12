@@ -11,7 +11,7 @@ puts "User delete_all"
 
 # Faker::Avatar.image
 
-9.times do |i|
+5.times do |i|
     User.create(
         name: Faker::Name.name,
         description: Faker::Lorem.sentence

@@ -61,16 +61,16 @@ class Users extends React.Component {
         </section>
 
         <div className="container">
-          <div className="text-right mb-3">
+          <div className="row mb-3 justify-content-between">
+            <Link to="/" className="btn custom-button">
+              Back to Home
+            </Link>
             <Link to="/users/create" className="btn custom-button">
               Create User Profile
             </Link>
           </div>
 
           <div className="row">{users.length > 0 ? allUsers : noUsers}</div>
-          <Link to="/" className="btn custom-button">
-            Back to Home
-          </Link>
         </div>
       </>
     );
