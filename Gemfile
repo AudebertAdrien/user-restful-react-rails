@@ -8,7 +8,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 ### Update Security
 gem "activesupport", ">= 6.0.3.1"
-gem "actionpack", ">= 6.0.3.1"
+gem "actionpack", ">= 6.0.3.2"
 gem "activestorage", ">= 6.0.3.1"
 
 
